@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}PanierController!
+{% endblock %}
+
+{% block body %}
+ <a class=h2 href="{{ path('app_register') }}">Create compte client</a>
+ <br>
+  <a class=h2 href="{{ path('app_login') }}">login compte client</a>
+<div class="container">
+	<div class="row">
+		{% set total_price = 0 %}
+		{% set product_count = 0 %}
+		<a href='/clear' class="btn btn-success">clear</a>
+
+		<formNombrePrix {% for produit in panier %} <div> {{ produit.nom }} '<br>' <img class="image3" src="/images/{{ produit.image }}"> {{ produit.prix }} € {% set total_price = total_price + produit.prix %} {% set product_count = product_count + 1 %} </div> {% endfor %} </form> '<br>' <p> produits dans le panier : {{ product_count }} </p> <p> total de la commande : {{ total_price }} €</p> </div> </div> {% endblock %}
